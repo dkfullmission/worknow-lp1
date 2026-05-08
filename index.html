@@ -1,0 +1,435 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+<title>ワークなう｜寮付き・即入居の製造業求人</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Kaisei+Decol:wght@700&family=Zen+Maru+Gothic:wght@500;700;900&display=swap" rel="stylesheet">
+<link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+<style>
+:root{
+  --ink:#1a1a2e;
+  --paper:#fffaf0;
+  --hi-vis:#ffd60a;
+  --signal:#ff3b30;
+  --sky:#4ecdc4;
+  --line-green:#06c755;
+}
+*{box-sizing:border-box;margin:0;padding:0;-webkit-tap-highlight-color:transparent;}
+html,body{
+  height:100%;background:#000;
+  font-family:"Zen Maru Gothic",sans-serif;
+  color:var(--ink);
+  font-feature-settings:"palt";
+}
+
+.stage{
+  position:relative;
+  width:100%;max-width:480px;
+  height:100dvh;min-height:100svh;
+  margin:0 auto;
+  background:var(--paper);
+  overflow:hidden;
+  display:flex;flex-direction:column;
+  isolation:isolate;
+}
+
+.stage::before{
+  content:"";
+  position:absolute;inset:0;
+  background:radial-gradient(ellipse at top,#fff5d6 0%,var(--paper) 60%);
+  z-index:0;
+}
+.stage::after{
+  content:"";
+  position:absolute;inset:0;
+  background-image:radial-gradient(circle,rgba(26,26,46,.06) 1px,transparent 1px);
+  background-size:14px 14px;
+  z-index:1;
+  pointer-events:none;
+}
+
+.tape{
+  position:absolute;left:0;right:0;height:12px;z-index:6;
+  background:repeating-linear-gradient(135deg,
+    var(--hi-vis) 0 16px,var(--ink) 16px 28px);
+}
+.tape.top{top:0;}
+
+/* ── ヘッダー ── */
+.head{
+  position:relative;z-index:10;
+  padding:20px 16px 0;
+  display:flex;justify-content:space-between;align-items:center;
+}
+.brand{
+  display:inline-flex;align-items:center;gap:6px;
+  font-family:"Zen Maru Gothic",sans-serif;
+  font-weight:900;
+  font-size:1.05rem;letter-spacing:.05em;
+  color:var(--ink);
+  background:var(--hi-vis);
+  padding:5px 12px 4px;
+  border:2px solid var(--ink);
+  box-shadow:3px 3px 0 var(--ink);
+}
+.eyecatch{
+  font-family:"Zen Maru Gothic",sans-serif;
+  font-weight:900;
+  font-size:.72rem;
+  background:var(--signal);
+  color:#fff;
+  padding:5px 10px;
+  letter-spacing:.02em;
+  box-shadow:2px 2px 0 var(--ink);
+  transform:rotate(2deg);
+  border:2px solid var(--ink);
+}
+
+/* ── メインコピー ── */
+.copy{
+  position:relative;z-index:10;
+  padding:10px 16px 0;
+  text-align:center;
+}
+.copy h1{
+  font-family:"Kaisei Decol",serif;
+  font-size:1.9rem;
+  line-height:1.35;
+  color:var(--ink);
+  font-weight:700;
+  letter-spacing:-.01em;
+}
+.copy h1 .hl{
+  background:var(--hi-vis);
+  padding:0 7px;
+  display:inline-block;
+  transform:skew(-6deg) rotate(-1deg);
+  box-shadow:3px 3px 0 var(--ink);
+  border:2px solid var(--ink);
+  margin:2px 3px;
+}
+.copy h1 .hl-red{
+  background:var(--signal);
+  color:#fff;
+  padding:0 7px;
+  display:inline-block;
+  transform:skew(-6deg) rotate(1deg);
+  box-shadow:3px 3px 0 var(--ink);
+  border:2px solid var(--ink);
+  margin:2px 3px;
+}
+.copy .lead{
+  margin-top:8px;
+  font-family:"Zen Maru Gothic",sans-serif;
+  font-size:.85rem;font-weight:700;
+  letter-spacing:.01em;
+  color:var(--ink);
+}
+.copy .lead em{
+  font-style:normal;
+  background:linear-gradient(transparent 60%,var(--hi-vis) 60%);
+  padding:0 2px;
+  font-weight:900;
+}
+
+/* ── 柴犬ヒーロー：flex:1で空きを埋める ── */
+.hero{
+  position:relative;z-index:10;
+  margin:4px auto 0;
+  width:100%;
+  flex:1;
+  min-height:0;
+  display:flex;align-items:center;justify-content:center;
+  padding:0 12px;
+}
+.hero svg{
+  max-width:100%;
+  max-height:100%;
+  height:auto;
+  width:auto;
+  filter:drop-shadow(0 8px 18px rgba(0,0,0,.22));
+  animation:bob 3s ease-in-out infinite;
+}
+@keyframes bob{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-5px);}
+}
+
+.bubble{
+  position:absolute;
+  top:5%;
+  right:6%;
+  background:#fff;
+  border:2.5px solid var(--ink);
+  border-radius:18px;
+  padding:6px 12px;
+  font-family:"Zen Maru Gothic",sans-serif;
+  font-weight:900;
+  font-size:.82rem;
+  box-shadow:3px 3px 0 var(--ink);
+  transform:rotate(4deg);
+  z-index:11;
+  white-space:nowrap;
+}
+.bubble::after{
+  content:"";position:absolute;
+  bottom:-12px;left:30%;
+  width:0;height:0;
+  border:8px solid transparent;
+  border-top-color:var(--ink);
+  border-bottom:0;
+}
+.bubble::before{
+  content:"";position:absolute;
+  bottom:-7px;left:32%;
+  width:0;height:0;
+  border:6px solid transparent;
+  border-top-color:#fff;
+  border-bottom:0;
+  z-index:1;
+}
+.bubble .accent{color:var(--signal);}
+
+.spark{
+  position:absolute;
+  font-size:1.1rem;
+  z-index:11;
+  animation:twinkle 1.6s ease-in-out infinite;
+}
+.spark.s1{top:14%;left:8%;color:var(--hi-vis);animation-delay:0s;}
+.spark.s2{top:48%;right:6%;color:var(--signal);animation-delay:.5s;}
+.spark.s3{bottom:22%;left:6%;color:var(--sky);animation-delay:1s;}
+@keyframes twinkle{
+  0%,100%{opacity:.4;transform:scale(.8);}
+  50%{opacity:1;transform:scale(1.2);}
+}
+
+/* ── 3本柱：CTAとの距離を詰める ── */
+.spec{
+  position:relative;z-index:10;
+  margin:0 14px;
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:8px;
+}
+.spec-item{
+  background:#fff;
+  padding:8px 4px;
+  text-align:center;
+  border:2px solid var(--ink);
+  border-radius:10px;
+  box-shadow:3px 3px 0 var(--ink);
+}
+.spec-item.s1{background:#fff3a8;}
+.spec-item.s2{background:#ffd0cc;}
+.spec-item.s3{background:#c8f0eb;}
+.spec-num{
+  font-family:"Anton",sans-serif;
+  font-size:.7rem;
+  letter-spacing:.1em;
+  color:var(--signal);
+}
+.spec-title{
+  font-family:"Zen Maru Gothic",sans-serif;
+  font-weight:900;
+  font-size:1rem;
+  line-height:1.15;
+  color:var(--ink);
+  margin-top:2px;
+}
+.spec-sub{
+  font-size:.62rem;
+  color:#444;
+  margin-top:2px;
+  font-weight:700;
+}
+
+/* ── CTA ── */
+.cta-wrap{
+  position:relative;z-index:10;
+  padding:10px 16px calc(14px + env(safe-area-inset-bottom));
+}
+.cta-lead{
+  text-align:center;
+  font-family:"Zen Maru Gothic",sans-serif;
+  font-weight:900;
+  font-size:.85rem;
+  margin:8px 0 6px;
+  color:var(--ink);
+}
+.cta-lead .arrow{color:var(--signal);}
+.cta-btn{
+  display:flex;align-items:center;justify-content:center;
+  gap:10px;
+  width:100%;
+  background:var(--line-green);
+  color:#fff;
+  text-decoration:none;
+  font-family:"Zen Maru Gothic",sans-serif;
+  font-weight:900;
+  font-size:1.3rem;
+  padding:15px;
+  border-radius:14px;
+  border:2.5px solid var(--ink);
+  box-shadow:5px 5px 0 var(--ink);
+  position:relative;
+  overflow:hidden;
+  transition:transform .08s, box-shadow .08s;
+  letter-spacing:.02em;
+}
+.cta-btn:active{
+  transform:translate(3px,3px);
+  box-shadow:2px 2px 0 var(--ink);
+}
+.cta-btn i{font-size:1.5rem;}
+.cta-btn .badge-free{
+  position:absolute;top:-10px;right:8px;
+  background:var(--signal);
+  color:#fff;
+  font-family:"Anton",sans-serif;
+  font-size:.78rem;
+  padding:4px 10px 2px;
+  letter-spacing:.05em;
+  border-radius:4px;
+  border:2px solid var(--ink);
+  transform:rotate(6deg);
+  box-shadow:2px 2px 0 var(--ink);
+}
+.cta-btn::after{
+  content:"";position:absolute;top:0;left:-60%;
+  width:40%;height:100%;
+  background:linear-gradient(120deg,transparent,rgba(255,255,255,.5),transparent);
+  transform:skewX(-25deg);
+  animation:shine 2.4s ease-in-out infinite;
+}
+@keyframes shine{
+  0%{left:-60%;}
+  60%{left:120%;}
+  100%{left:120%;}
+}
+
+.foot{
+  text-align:center;
+  margin-top:6px;
+  font-size:.62rem;
+  color:#666;
+  font-weight:700;
+}
+.foot i{color:var(--signal);margin:0 3px;}
+
+@media (max-height:740px){
+  .copy h1{font-size:1.65rem;}
+}
+@media (max-height:640px){
+  .copy h1{font-size:1.4rem;}
+  .copy .lead{font-size:.74rem;}
+  .head{padding-top:16px;}
+}
+</style>
+</head>
+<body>
+
+<div class="stage">
+  <div class="tape top"></div>
+
+  <header class="head">
+    <div class="brand"><i class="fas fa-hard-hat"></i> ワークなう</div>
+    <div class="eyecatch">所持金0円OK／即入寮</div>
+  </header>
+
+  <section class="copy">
+    <h1>
+      <span class="hl">寮付き</span>で<br>
+      今日から住める<br>
+      <span class="hl-red">製造業</span>のお仕事。
+    </h1>
+    <p class="lead">手ぶら出社OK／<em>未経験から月収30万円</em>↑</p>
+  </section>
+
+  <div class="hero">
+    <span class="spark s1">★</span>
+    <span class="spark s2">✦</span>
+    <span class="spark s3">✧</span>
+    <div class="bubble">いい仕事、<span class="accent">あるワン！</span></div>
+
+    <svg viewBox="0 0 320 290" xmlns="http://www.w3.org/2000/svg" aria-label="作業着姿の柴犬">
+      <ellipse cx="160" cy="278" rx="95" ry="8" fill="rgba(0,0,0,0.18)"/>
+      <path d="M85 280 Q80 200 95 175 Q120 165 160 165 Q200 165 225 175 Q240 200 235 280 Z" fill="#2563a8" stroke="#1a1a2e" stroke-width="3"/>
+      <line x1="160" y1="170" x2="160" y2="270" stroke="#1a1a2e" stroke-width="2" stroke-dasharray="4 3"/>
+      <rect x="180" y="195" width="32" height="28" fill="#1e4d8a" stroke="#1a1a2e" stroke-width="2" rx="2"/>
+      <rect x="105" y="195" width="50" height="14" fill="#ffd60a" stroke="#1a1a2e" stroke-width="2" rx="1"/>
+      <text x="130" y="206" font-family="Anton" font-size="11" fill="#1a1a2e" text-anchor="middle" font-weight="700">SHIBA</text>
+      <rect x="85" y="240" width="150" height="6" fill="#c8f0eb" opacity="0.9"/>
+      <rect x="85" y="248" width="150" height="2" fill="#fff" opacity="0.7"/>
+      <path d="M85 180 Q70 210 78 250 Q82 262 95 260 Q105 250 100 220 Q98 195 95 178 Z" fill="#2563a8" stroke="#1a1a2e" stroke-width="3"/>
+      <circle cx="86" cy="258" r="14" fill="#e8c5a0" stroke="#1a1a2e" stroke-width="2.5"/>
+      <ellipse cx="80" cy="245" rx="4" ry="6" fill="#e8c5a0" stroke="#1a1a2e" stroke-width="2"/>
+      <path d="M225 178 Q240 200 235 245 Q232 260 222 260 Q215 250 218 225 Q220 200 225 180 Z" fill="#2563a8" stroke="#1a1a2e" stroke-width="3"/>
+      <circle cx="226" cy="258" r="13" fill="#e8c5a0" stroke="#1a1a2e" stroke-width="2.5"/>
+      <ellipse cx="160" cy="170" rx="48" ry="22" fill="#f5e6d3" stroke="#1a1a2e" stroke-width="3"/>
+      <path d="M100 130 Q100 70 160 65 Q220 70 220 130 Q220 165 195 175 Q160 182 125 175 Q100 165 100 130 Z" fill="#d4853a" stroke="#1a1a2e" stroke-width="3"/>
+      <ellipse cx="160" cy="148" rx="38" ry="26" fill="#fff5e8" stroke="#1a1a2e" stroke-width="2.5"/>
+      <path d="M105 95 Q95 60 120 55 Q130 70 130 100 Z" fill="#b86d28" stroke="#1a1a2e" stroke-width="2.5"/>
+      <path d="M115 90 Q112 75 122 72 Q126 82 124 95 Z" fill="#3a2515"/>
+      <path d="M215 95 Q225 60 200 55 Q190 70 190 100 Z" fill="#b86d28" stroke="#1a1a2e" stroke-width="2.5"/>
+      <path d="M205 90 Q208 75 198 72 Q194 82 196 95 Z" fill="#3a2515"/>
+      <ellipse cx="118" cy="135" rx="14" ry="10" fill="#fff5e8" stroke="#1a1a2e" stroke-width="2"/>
+      <ellipse cx="202" cy="135" rx="14" ry="10" fill="#fff5e8" stroke="#1a1a2e" stroke-width="2"/>
+      <ellipse cx="135" cy="112" rx="6" ry="3" fill="#3a2515" transform="rotate(-15 135 112)"/>
+      <ellipse cx="185" cy="112" rx="6" ry="3" fill="#3a2515" transform="rotate(15 185 112)"/>
+      <ellipse cx="135" cy="125" rx="6" ry="8" fill="#1a1a2e"/>
+      <ellipse cx="185" cy="125" rx="6" ry="8" fill="#1a1a2e"/>
+      <circle cx="137" cy="122" r="2" fill="#fff"/>
+      <circle cx="187" cy="122" r="2" fill="#fff"/>
+      <ellipse cx="160" cy="142" rx="7" ry="5" fill="#1a1a2e"/>
+      <ellipse cx="158" cy="140" rx="2" ry="1.5" fill="#555"/>
+      <path d="M160 148 L160 158" stroke="#1a1a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M160 158 Q145 168 138 160" stroke="#1a1a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M160 158 Q175 168 182 160" stroke="#1a1a2e" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+      <path d="M155 160 Q160 170 165 160 Q165 165 160 167 Q155 165 155 160" fill="#ff6b8a" stroke="#1a1a2e" stroke-width="1.5"/>
+      <path d="M88 90 Q88 35 160 32 Q232 35 232 90 L232 100 L88 100 Z" fill="#ffd60a" stroke="#1a1a2e" stroke-width="3"/>
+      <ellipse cx="160" cy="100" rx="76" ry="8" fill="#ffd60a" stroke="#1a1a2e" stroke-width="3"/>
+      <path d="M160 32 Q160 60 160 100" stroke="#1a1a2e" stroke-width="2" fill="none"/>
+      <path d="M120 38 Q120 65 122 100" stroke="rgba(0,0,0,0.15)" stroke-width="2" fill="none"/>
+      <path d="M200 38 Q200 65 198 100" stroke="rgba(0,0,0,0.15)" stroke-width="2" fill="none"/>
+      <rect x="146" y="50" width="28" height="20" fill="#fff" stroke="#1a1a2e" stroke-width="2" rx="2"/>
+      <rect x="156" y="53" width="8" height="14" fill="#06c755"/>
+      <rect x="150" y="56" width="20" height="8" fill="#06c755"/>
+      <circle cx="105" cy="78" r="5" fill="#fff" stroke="#1a1a2e" stroke-width="1.5" opacity="0.95"/>
+      <circle cx="215" cy="78" r="5" fill="#fff" stroke="#1a1a2e" stroke-width="1.5" opacity="0.95"/>
+    </svg>
+  </div>
+
+  <section class="spec">
+    <div class="spec-item s1">
+      <div class="spec-num">No.01</div>
+      <div class="spec-title">寮完備<br>即入居</div>
+      <div class="spec-sub">家具家電付き</div>
+    </div>
+    <div class="spec-item s2">
+      <div class="spec-num">No.02</div>
+      <div class="spec-title">高収入<br>高待遇</div>
+      <div class="spec-sub">月収30万〜</div>
+    </div>
+    <div class="spec-item s3">
+      <div class="spec-num">No.03</div>
+      <div class="spec-title">スピード<br>採用</div>
+      <div class="spec-sub">最短即日内定</div>
+    </div>
+  </section>
+
+  <div class="cta-wrap">
+    <p class="cta-lead"><span class="arrow">▼</span> 30秒・LINEで完結 <span class="arrow">▼</span></p>
+    <a href="#" class="cta-btn">
+      <span class="badge-free">完全無料</span>
+      <i class="fab fa-line"></i>
+      <span>無料で求人をみる</span>
+    </a>
+    <p class="foot"><i class="fas fa-clock"></i> 24時間受付・しつこい営業なし <i class="fas fa-clock"></i></p>
+  </div>
+</div>
+
+</body>
+</html>
